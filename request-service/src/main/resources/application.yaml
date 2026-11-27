@@ -1,3 +1,9 @@
 spring:
   application:
     name: request-service
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:127.0.0.1}:${POSTGRES_PORT:5440}/request_db
+    username: ${POSTGRES_USER:root}
+    password: ${POSTGRES_PASSWORD:password}
+server:
+  port: ${SERVER_PORT:8081}
