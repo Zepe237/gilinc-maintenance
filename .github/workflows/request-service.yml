@@ -1,0 +1,17 @@
+name: request-service CI
+on:
+  pull_request:
+    paths:
+      - request-service/**
+      - pom.xm
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-javav4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - run: ./mvnw -B -pl request-service -am verify
